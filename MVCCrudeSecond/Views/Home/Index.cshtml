@@ -1,0 +1,43 @@
+﻿@model List<MVCCrudeSecond.Models.EmpModel>
+
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<h1> Emp Details</h1>
+
+<table class="table table-bordered table-responsive table-hover">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Salary</th>
+        <th>Mob</th>
+        <th>Email</th>
+        <th>Department</th>
+        <th>City</th>
+        <th>Edit</th>
+        <th>Delete</th>
+
+
+    </tr>
+    @foreach (var item in Model)
+    {
+<tr>
+
+    <td>@item.Id</td>
+    <td>@item.Name</td>
+    <td>@item.Salary</td>
+    <td>@item.Mob</td>
+    <td>@item.Email</td>
+    <td>@item.Department</td>
+    <td>@item.City</td>
+
+
+    <td><a href="@Url.Action("Edit","Home", new {item.Id})" class="btn btn-warning">Edit</a></td>
+    <td><a href="@Url.Action("Delete","Home", new {item.Id})" class="btn btn-danger">Delete</a></td>
+</tr>
+
+    }
+</table>

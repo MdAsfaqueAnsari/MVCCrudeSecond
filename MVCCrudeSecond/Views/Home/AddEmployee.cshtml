@@ -1,0 +1,81 @@
+﻿@model MVCCrudeSecond.Models.EmpModel
+
+<style>
+    .error {
+        color: #ff0000
+    }
+</style>
+
+
+@{
+    ViewBag.Title = "AddEmployee";
+}
+
+@if (ViewBag.Id == null)
+{
+    <h2>AddEmployee</h2>
+}
+else
+{
+    <h2>EditEmployee</h2>
+
+}
+
+
+@using (Html.BeginForm("AddEmployee", "Home", FormMethod.Post))
+{
+
+    @Html.HiddenFor(m => m.Id)
+
+    <div class="form-group">
+        <label>Name</label>
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @placeholder = "Name" })
+        @Html.ValidationMessageFor(m => m.Name, "", new { @class = "error" })
+    </div>
+
+
+    <div class="form-group">
+        <label>Salary</label>
+        @Html.TextBoxFor(m => m.Salary, new { @class = "form-control", @placeholder = "Salary" })
+        @Html.ValidationMessageFor(m => m.Salary, "", new { @class = "error" })
+
+    </div>
+
+
+    <div class="form-group">
+        <label>Mob</label>
+        @Html.TextBoxFor(m => m.Mob, new { @class = "form-control", @placeholder = "Please Enter the Mob No" })
+        @Html.ValidationMessageFor(m => m.Mob, "", new { @class = "error" })
+
+    </div>
+
+
+    <div class="form-group">
+        <label>Email</label>
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Please Enter the Email" })
+        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "error" })
+
+    </div>
+
+
+    <div class="form-group">
+        <label>Department</label>
+        @Html.TextBoxFor(m => m.Department, new { @class = "form-control", @placeholder = "Department" })
+        @Html.ValidationMessageFor(m => m.Department, "", new { @class = "error" })
+
+    </div>
+
+
+    <div class="form-group">
+        <label>City</label>
+        @Html.TextBoxFor(m => m.City, new { @class = "form-control", @placeholder = "City" })
+        @Html.ValidationMessageFor(m => m.City, "", new { @class = "error" })
+
+    </div>
+
+    <button type="submit" class=" btn btn-success">Submit</button>
+    <button type="reset" class=" btn btn-primary">Reset</button>
+
+
+}
+
